@@ -17,6 +17,7 @@ fetch("/api/transaction")
   .then(data => {
     //the data is placed in the empty array "transactions"
     transactions = data;
+    console.log(transactions);
 // when the data is fetched, these functions fire. This happens when the user is back online.
     populateTotal();
     populateTable();
@@ -104,7 +105,7 @@ function sendTransaction(isAdding) {
     transaction.value *= -1;
   }
 
-  transactions.unshift();
+  transactions.unshift(transaction);
 
   populateChart();
   populateTable();
